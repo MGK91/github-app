@@ -40,12 +40,24 @@ jobs:
 
       - name: Archive dist folder
         run: tar -czf dist-${{ matrix.os }}-${{ matrix.node-version }}.tar.gz dist
+      
+      - name: Upload artifacts
+        uses: actions/upload-artifacts@v3
+        with:
+          name: dist
+          path: ./dist-ubuntu-latest-22.tar.gz
 
   deploy:
     needs: build-and-test
     runs-on: ubuntu-latest
 
     steps:
+      - name: Downlaod the dist artifact
+        uses: actions/download-artifacts@v3
+        with:
+          name: dist
+          path: ./
+
       - name: Set up SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
