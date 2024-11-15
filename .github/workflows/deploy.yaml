@@ -27,7 +27,7 @@ jobs:
         run: npm install
 
       - name: Retrieve PAT token from secret
-        run: sed -i 's/TOKEN/${{ secrets.TOKEN }}/g' .env
+        run: sed -i 's/SECRET-PLACEHOLDER/${{ secrets.TOKEN }}/g' .env
         
       - name: Set execute permissions on Jest
         run: chmod +x ./node_modules/.bin/jest
