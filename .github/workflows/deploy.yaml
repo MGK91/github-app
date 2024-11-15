@@ -1,5 +1,6 @@
 name: Build and Deploy to EC2 with Matrix Testing
-
+on:
+  workflow_dispatch:
 on:
   push:
     branches:
