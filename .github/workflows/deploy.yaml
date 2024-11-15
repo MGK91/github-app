@@ -80,7 +80,7 @@ jobs:
 
             # Install dependencies if not already done
             cd /home/ec2-user/dist
-            npm install --only=prod
+            #npm install --only=prod
 
             # Start the app
             nohup npm start > app.log 2>&1 &
